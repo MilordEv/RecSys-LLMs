@@ -1,0 +1,19 @@
+Regression command:
+node assignment1/evidence/missing-dish-icons/icon-regression-test.js assignment1/index.html expect-present
+
+Regression output:
+Font Awesome stylesheet: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+Ramen: fa-bowl-food -> PRESENT
+Pasta: fa-plate-wheat -> PRESENT
+Soup: fa-mug-hot -> PRESENT
+Missing target icons: 0
+PASS
+
+Rendered browser check:
+Ramen: class="fas fa-bowl-food", pseudo-element content is non-empty, rendered width=64px
+Pasta: class="fas fa-plate-wheat", pseudo-element content is non-empty, rendered width=64px
+Soup: class="fas fa-mug-hot", pseudo-element content is non-empty, rendered width=64px
+Browser console errors: 0
+
+Interpretation:
+All three replacement classes exist in the exact pinned stylesheet and produce visible 64px glyphs in the rendered application.

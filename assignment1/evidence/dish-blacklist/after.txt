@@ -1,0 +1,29 @@
+Regression command:
+node assignment1/evidence/dish-blacklist/blacklist-regression-test.js assignment1/index.html expect-working
+
+Regression output:
+Initially recommended dish: Pizza
+Appearances during 10,000 selections while blacklisted: 0
+Alternative dishes reached while blacklisted: 23
+Appearances during 10,000 selections after clearing: 469
+Status after excluding all dishes: 24 dishes blacklisted this session.
+Empty state after excluding all dishes: No dishes available
+Generation disabled with no dishes available: true
+Recommendation after clearing all exclusions: Pizza
+Status after clearing: No dishes blacklisted this session.
+PASS
+
+Full-suite result:
+10/10 tests passed
+
+Browser interaction check:
+Blacklisted dish: Steak
+Status after blacklisting: 1 dish blacklisted this session.
+Next 12 dishes: Hot Dog -> Soup -> BBQ -> Sandwich -> Salad -> Fried Rice -> Pizza -> Omelette -> Falafel Wrap -> BBQ -> Avocado Toast -> Fried Rice
+Appearances of Steak after blacklisting: 0
+Status after clearing: No dishes blacklisted this session.
+Clear control visible after reset: false
+Browser console errors: 0
+
+Interpretation:
+The blacklisted dish remained absent while every other dish stayed reachable. Excluding the full catalogue produced a safe empty state and disabled generation. Clearing the blacklist restored recommendations, and the visible browser controls updated correctly without console errors.

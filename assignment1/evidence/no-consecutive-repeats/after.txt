@@ -1,0 +1,27 @@
+Targeted regression command:
+node assignment1/evidence/no-consecutive-repeats/regression-test.js assignment1/index.html expect-no-repeat
+
+Targeted regression output:
+Deterministic random inputs: 0.01, 0.01
+Displayed dishes: Pizza -> Sushi
+Consecutive repeat observed: false
+PASS
+
+Effectiveness command:
+node assignment1/evidence/no-consecutive-repeats/regression-test.js assignment1/index.html stress-no-repeat
+
+Effectiveness output:
+Deterministic random inputs: seeded LCG (seed 123456789)
+Selections checked: 100000
+Consecutive repeats: 0
+Dish counts: BBQ=8116, Burger=8253, Curry=8299, Pasta=8385, Pizza=8369, Ramen=8457, Salad=8401, Sandwich=8488, Soup=8278, Steak=8326, Sushi=8225, Tacos=8403
+PASS
+
+Interpretation:
+The same inputs that previously produced Pizza twice now produce Pizza followed by Sushi. Across 100,000 reproducible selections, the fixed application produced zero consecutive repeats and continued to select every dish.
+
+Browser interaction check:
+URL: http://localhost:8000/assignment1/
+Selections: Ramen -> Salad -> BBQ -> Sandwich -> Soup -> Curry -> Tacos -> Sandwich -> Salad -> Soup -> Tacos -> BBQ -> Sushi -> Burger -> Sandwich -> BBQ -> Steak -> BBQ -> Sushi -> Soup
+Adjacent repeats: 0
+Browser console errors: 0

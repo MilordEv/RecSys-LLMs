@@ -1,0 +1,5 @@
+Dishes found: 24
+Unique dish names: 24
+Cluster sizes: bowls=4, grill=4, handheld=7, italian=2, light-meals=4, soups=3
+All clusters equal: false
+PASS

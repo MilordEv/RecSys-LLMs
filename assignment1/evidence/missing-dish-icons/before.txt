@@ -1,0 +1,13 @@
+Command:
+node assignment1/evidence/missing-dish-icons/icon-regression-test.js assignment1/index.html expect-missing
+
+Output:
+Font Awesome stylesheet: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+Ramen: fa-bowl-hot -> MISSING
+Pasta: fa-pasta -> MISSING
+Soup: fa-bowl -> MISSING
+Missing target icons: 3
+PASS
+
+Interpretation:
+The three icon class names configured by the original app do not exist in the pinned Font Awesome 6.4.0 stylesheet, so the browser has no glyph to render for these dishes.

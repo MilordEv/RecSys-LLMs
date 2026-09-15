@@ -1,0 +1,31 @@
+Targeted regression command:
+node assignment1/evidence/no-consecutive-clusters/cluster-regression-test.js assignment1/index.html expect-no-cluster-repeat
+
+Targeted regression output:
+Configured clusters: bowls=4, grill=4, handheld=7, italian=2, light-meals=4, soups=3
+Deterministic random inputs: 0.21, 0.40
+Displayed dishes: Ramen -> Steak
+Displayed clusters: soups -> grill
+Consecutive same-cluster transition observed: false
+PASS
+
+Effectiveness command:
+node assignment1/evidence/no-consecutive-clusters/cluster-regression-test.js assignment1/index.html stress-no-cluster-repeat
+
+Effectiveness output:
+Configured clusters: bowls=4, grill=4, handheld=7, italian=2, light-meals=4, soups=3
+Deterministic random inputs: seeded LCG (seed 987654321)
+Selections checked: 100000
+Unique dishes selected: 24
+Consecutive same-cluster transitions: 0
+PASS
+
+Interpretation:
+The exact random inputs that previously produced Ramen followed by Soup now produce Ramen followed by Steak. Across 100,000 reproducible selections, all 24 dishes remained reachable and no recommendation followed another recommendation from the same cluster.
+
+Browser interaction check:
+Selections checked: 30
+Dish sequence: Sushi -> Steak -> Chili -> Cheese Toastie -> Omelette -> Fish & Chips -> Avocado Toast -> Steak -> Omelette -> BBQ -> Omelette -> Tacos -> Grilled Chicken -> Sandwich -> Pho -> Sandwich -> BBQ -> Fried Rice -> Ramen -> Veggie Stir-fry -> Tacos -> Seafood Bowl -> Tacos -> Soup -> Burger -> Grilled Chicken -> Sushi -> Ramen -> Burger -> BBQ
+Cluster sequence: bowls -> grill -> light-meals -> handheld -> light-meals -> grill -> handheld -> grill -> light-meals -> grill -> light-meals -> handheld -> grill -> handheld -> soups -> handheld -> grill -> bowls -> soups -> light-meals -> handheld -> bowls -> handheld -> soups -> handheld -> grill -> bowls -> soups -> handheld -> grill
+Consecutive same-cluster transitions: 0
+Browser console errors: 0

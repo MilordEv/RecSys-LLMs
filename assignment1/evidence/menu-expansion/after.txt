@@ -1,0 +1,29 @@
+Catalogue verification command:
+node assignment1/evidence/menu-expansion/menu-regression-test.js assignment1/index.html expect-expanded
+
+Catalogue verification output:
+Menu entries: 24
+Unique dish names: 24
+Dishes: Pizza, Sushi, Burger, Salad, Tacos, Ramen, Sandwich, Pasta, Curry, Steak, Soup, BBQ, Hot Dog, Fried Rice, Falafel Wrap, Grilled Chicken, Seafood Bowl, Cheese Toastie, Omelette, Veggie Stir-fry, Chili, Fish & Chips, Avocado Toast, Pho
+Missing icon classes: 0
+PASS
+
+Selection effectiveness command:
+node assignment1/evidence/no-consecutive-repeats/regression-test.js assignment1/index.html stress-no-repeat
+
+Selection effectiveness output:
+Deterministic random inputs: seeded LCG (seed 123456789)
+Selections checked: 100000
+Consecutive repeats: 0
+Dish counts: Avocado Toast=4107, BBQ=4182, Burger=4112, Cheese Toastie=4151, Chili=4136, Curry=4182, Falafel Wrap=4153, Fish & Chips=4187, Fried Rice=4331, Grilled Chicken=4206, Hot Dog=4205, Omelette=4143, Pasta=4163, Pho=3984, Pizza=4177, Ramen=4161, Salad=4144, Sandwich=4229, Seafood Bowl=4153, Soup=4300, Steak=4180, Sushi=4132, Tacos=4111, Veggie Stir-fry=4171
+PASS
+
+Interpretation:
+The catalogue doubled from 12 to 24 unique dishes. Every dish has a valid icon class, every dish appeared during the reproducible 100,000-selection run, and the previous no-consecutive-repeat guarantee still held.
+
+Browser interaction check:
+Selections checked: 30
+Unique dishes observed: 17
+New dishes observed: Fried Rice, Falafel Wrap, Cheese Toastie, Pho, Omelette, Avocado Toast, Seafood Bowl
+Adjacent repeats: 0
+Browser console errors: 0

@@ -1,0 +1,11 @@
+Command:
+node assignment1/evidence/menu-expansion/menu-regression-test.js assignment1/index.html expect-baseline
+
+Output:
+Menu entries: 12
+Unique dish names: 12
+Dishes: Pizza, Sushi, Burger, Salad, Tacos, Ramen, Sandwich, Pasta, Curry, Steak, Soup, BBQ
+PASS
+
+Interpretation:
+The original catalogue contains only 12 distinct lunch choices.

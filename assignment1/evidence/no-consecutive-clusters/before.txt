@@ -1,0 +1,12 @@
+Command:
+node assignment1/evidence/no-consecutive-clusters/cluster-regression-test.js assignment1/index.html expect-cluster-repeat
+
+Output:
+Deterministic random inputs: 0.21, 0.40
+Displayed dishes: Ramen -> Soup
+Displayed clusters: soups -> soups
+Consecutive same-cluster transition observed: true
+PASS
+
+Interpretation:
+The dish-level no-repeat rule still allows two different dishes from the same family to appear consecutively. This deterministic case recommends Ramen followed by Soup.

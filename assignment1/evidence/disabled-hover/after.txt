@@ -1,0 +1,4 @@
+Unguarded hover selector present: false
+Disabled-safe hover selector present: true
+Disabled-safe active selector present: true
+PASS

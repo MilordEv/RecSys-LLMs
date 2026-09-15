@@ -1,0 +1,11 @@
+Command:
+node assignment1/evidence/no-consecutive-repeats/regression-test.js assignment1/index.html expect-repeat
+
+Output:
+Deterministic random inputs: 0.01, 0.01
+Displayed dishes: Pizza -> Pizza
+Consecutive repeat observed: true
+PASS
+
+Interpretation:
+The original application maps both identical random inputs directly to menu index 0, so Pizza is displayed twice consecutively.

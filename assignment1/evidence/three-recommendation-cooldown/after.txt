@@ -1,0 +1,43 @@
+Targeted regression command:
+node assignment1/evidence/three-recommendation-cooldown/cooldown-regression-test.js assignment1/index.html expect-no-early-repeat
+
+Targeted regression output:
+Deterministic random inputs: 0.01, 0.01, 0.01
+Displayed dishes: Pizza -> Sushi -> Burger
+Early repeat observed: false
+PASS
+
+Cooldown boundary command:
+node assignment1/evidence/three-recommendation-cooldown/cooldown-regression-test.js assignment1/index.html expect-return-after-cooldown
+
+Cooldown boundary output:
+Deterministic random inputs: 0.01, 0.01, 0.01, 0.01, 0.01
+Displayed dishes: Pizza -> Sushi -> Burger -> Salad -> Pizza
+Early repeat observed: false
+PASS
+
+Effectiveness command:
+node assignment1/evidence/three-recommendation-cooldown/cooldown-regression-test.js assignment1/index.html stress-no-early-repeat
+
+Effectiveness output:
+Deterministic random inputs: seeded LCG (seed 246813579)
+Selections checked: 100000
+Unique dishes selected: 24
+Three-recommendation cooldown violations: 0
+PASS
+
+Cluster regression output:
+Selections checked: 100000
+Unique dishes selected: 24
+Consecutive same-cluster transitions: 0
+PASS
+
+Interpretation:
+The exact random inputs that previously produced Pizza, Sushi, Pizza now produce Pizza, Sushi, Burger. The boundary check proves Pizza becomes eligible again after exactly three other recommendations. Across 100,000 reproducible selections, no dish appeared within the three recommendations following its previous appearance, every dish remained reachable, and the previous cluster rule still held.
+
+Browser interaction check:
+Selections checked: 30
+Dish sequence: Fish & Chips -> Pho -> Sushi -> Ramen -> Fried Rice -> Sandwich -> Pho -> Pasta -> Tacos -> Pizza -> Steak -> Fried Rice -> Hot Dog -> Ramen -> Veggie Stir-fry -> Fish & Chips -> Avocado Toast -> Soup -> Omelette -> Ramen -> Salad -> BBQ -> Cheese Toastie -> Ramen -> Salad -> Pizza -> Hot Dog -> Curry -> Cheese Toastie -> Omelette
+Three-recommendation cooldown violations: 0
+Consecutive same-cluster transitions: 0
+Browser console errors: 0

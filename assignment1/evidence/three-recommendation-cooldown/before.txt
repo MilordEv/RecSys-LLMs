@@ -1,0 +1,11 @@
+Command:
+node assignment1/evidence/three-recommendation-cooldown/cooldown-regression-test.js assignment1/index.html expect-early-repeat
+
+Output:
+Deterministic random inputs: 0.01, 0.01, 0.01
+Displayed dishes: Pizza -> Sushi -> Pizza
+Early repeat observed: true
+PASS
+
+Interpretation:
+The cluster-only implementation prevents immediate category repetition, but it allows the same dish to return after just one intervening recommendation.

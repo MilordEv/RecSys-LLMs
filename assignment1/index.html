@@ -82,14 +82,65 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
         }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .blacklist-btn {
+            background-color: white;
+            color: #d64545;
+            border: 2px solid #ff6b6b;
+            border-radius: 50px;
+            padding: 13px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .blacklist-btn:hover:not(:disabled) {
+            background-color: #fff1f1;
+            transform: translateY(-3px);
+        }
+
+        .generate-btn:disabled,
+        .blacklist-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.55;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .blacklist-summary {
+            min-height: 24px;
+            margin-top: 16px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .clear-blacklist-btn {
+            margin-left: 8px;
+            padding: 0;
+            color: #c43d3d;
+            background: none;
+            border: none;
+            font: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
         
-        .generate-btn:hover {
+        .generate-btn:hover:not(:disabled) {
             background-color: #ff5252;
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
         }
         
-        .generate-btn:active {
+        .generate-btn:active:not(:disabled) {
             transform: translateY(0);
         }
         
@@ -125,6 +176,14 @@
                 padding: 12px 30px;
                 font-size: 1.1rem;
             }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .blacklist-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -138,9 +197,19 @@
             <div class="food-name">What's for lunch?</div>
         </div>
         
-        <button class="generate-btn" id="generateBtn">
-            <i class="fas fa-random"></i> Generate Lunch!
-        </button>
+        <div class="actions">
+            <button class="generate-btn" id="generateBtn">
+                <i class="fas fa-random"></i> Generate Lunch!
+            </button>
+            <button class="blacklist-btn" id="blacklistBtn" disabled>
+                <i class="fas fa-ban"></i> Blacklist this dish
+            </button>
+        </div>
+
+        <p class="blacklist-summary" aria-live="polite">
+            <span id="blacklistStatus">No dishes blacklisted this session.</span>
+            <button class="clear-blacklist-btn" id="clearBlacklistBtn" hidden>Clear blacklist</button>
+        </p>
         
         <p class="footer">Click the button again if you can't decide!</p>
     </div>
@@ -151,31 +220,132 @@
             const foodIcon = document.querySelector('.food-icon');
             const foodName = document.querySelector('.food-name');
             const lunchDisplay = document.querySelector('.lunch-display');
+            const blacklistBtn = document.getElementById('blacklistBtn');
+            const clearBlacklistBtn = document.getElementById('clearBlacklistBtn');
+            const blacklistStatus = document.getElementById('blacklistStatus');
             
             // Array of lunch options with corresponding Font Awesome icons
             const lunchMenu = [
-                { name: "Pizza", icon: "fas fa-pizza-slice" },
-                { name: "Sushi", icon: "fas fa-fish" },
-                { name: "Burger", icon: "fas fa-hamburger" },
-                { name: "Salad", icon: "fas fa-leaf" },
-                { name: "Tacos", icon: "fas fa-utensil-spoon" },
-                { name: "Ramen", icon: "fas fa-bowl-hot" },
-                { name: "Sandwich", icon: "fas fa-bread-slice" },
-                { name: "Pasta", icon: "fas fa-pasta" },
-                { name: "Curry", icon: "fas fa-mortar-pestle" },
-                { name: "Steak", icon: "fas fa-drumstick-bite" },
-                { name: "Soup", icon: "fas fa-bowl" },
-                { name: "BBQ", icon: "fas fa-fire" }
+                { name: "Pizza", icon: "fas fa-pizza-slice", cluster: "italian" },
+                { name: "Sushi", icon: "fas fa-fish", cluster: "bowls" },
+                { name: "Burger", icon: "fas fa-hamburger", cluster: "handheld" },
+                { name: "Salad", icon: "fas fa-leaf", cluster: "light-meals" },
+                { name: "Tacos", icon: "fas fa-utensil-spoon", cluster: "handheld" },
+                { name: "Ramen", icon: "fas fa-bowl-food", cluster: "soups" },
+                { name: "Sandwich", icon: "fas fa-bread-slice", cluster: "handheld" },
+                { name: "Pasta", icon: "fas fa-plate-wheat", cluster: "italian" },
+                { name: "Curry", icon: "fas fa-mortar-pestle", cluster: "bowls" },
+                { name: "Steak", icon: "fas fa-drumstick-bite", cluster: "grill" },
+                { name: "Soup", icon: "fas fa-mug-hot", cluster: "soups" },
+                { name: "BBQ", icon: "fas fa-fire", cluster: "grill" },
+                { name: "Hot Dog", icon: "fas fa-hotdog", cluster: "handheld" },
+                { name: "Fried Rice", icon: "fas fa-bowl-rice", cluster: "bowls" },
+                { name: "Falafel Wrap", icon: "fas fa-seedling", cluster: "handheld" },
+                { name: "Grilled Chicken", icon: "fas fa-drumstick-bite", cluster: "grill" },
+                { name: "Seafood Bowl", icon: "fas fa-shrimp", cluster: "bowls" },
+                { name: "Cheese Toastie", icon: "fas fa-cheese", cluster: "handheld" },
+                { name: "Omelette", icon: "fas fa-egg", cluster: "light-meals" },
+                { name: "Veggie Stir-fry", icon: "fas fa-carrot", cluster: "light-meals" },
+                { name: "Chili", icon: "fas fa-pepper-hot", cluster: "light-meals" },
+                { name: "Fish & Chips", icon: "fas fa-fish-fins", cluster: "grill" },
+                { name: "Avocado Toast", icon: "fas fa-bread-slice", cluster: "handheld" },
+                { name: "Pho", icon: "fas fa-bowl-food", cluster: "soups" },
+                { name: "Lasagna", icon: "fas fa-layer-group", cluster: "italian" },
+                { name: "Risotto", icon: "fas fa-bowl-rice", cluster: "italian" },
+                { name: "Gnocchi", icon: "fas fa-plate-wheat", cluster: "italian" },
+                { name: "Ravioli", icon: "fas fa-square", cluster: "italian" },
+                { name: "Calzone", icon: "fas fa-pizza-slice", cluster: "italian" },
+                { name: "Poke Bowl", icon: "fas fa-shrimp", cluster: "bowls" },
+                { name: "Burrito Bowl", icon: "fas fa-bowl-rice", cluster: "bowls" },
+                { name: "Buddha Bowl", icon: "fas fa-leaf", cluster: "bowls" },
+                { name: "Tomato Soup", icon: "fas fa-mug-hot", cluster: "soups" },
+                { name: "Miso Soup", icon: "fas fa-bowl-food", cluster: "soups" },
+                { name: "Lentil Soup", icon: "fas fa-bowl-food", cluster: "soups" },
+                { name: "Chowder", icon: "fas fa-mug-hot", cluster: "soups" },
+                { name: "Grilled Salmon", icon: "fas fa-fish", cluster: "grill" },
+                { name: "Kebab", icon: "fas fa-fire", cluster: "grill" },
+                { name: "Roast Vegetables", icon: "fas fa-pepper-hot", cluster: "grill" },
+                { name: "Quiche", icon: "fas fa-egg", cluster: "light-meals" },
+                { name: "Greek Salad", icon: "fas fa-leaf", cluster: "light-meals" },
+                { name: "Fruit Bowl", icon: "fas fa-apple-whole", cluster: "light-meals" }
             ];
+            let previousLunchCluster = null;
+            const recentLunchNames = [];
+            const dishCooldownLength = 3;
+            const blacklistedLunchNames = new Set();
+            let currentLunch = null;
+
+            function updateBlacklistStatus() {
+                const count = blacklistedLunchNames.size;
+                const remainingCount = lunchMenu.length - count;
+                const remainingText = remainingCount < 10
+                    ? ` ${remainingCount} ${remainingCount === 1 ? 'dish' : 'dishes'} left.`
+                    : '';
+                blacklistStatus.textContent = count === 0
+                    ? 'No dishes blacklisted this session.'
+                    : `${count} ${count === 1 ? 'dish' : 'dishes'} blacklisted this session.${remainingText}`;
+                clearBlacklistBtn.hidden = count === 0;
+            }
+
+            // Exclude the previous cluster and dishes shown in the last three recommendations.
+            function getNextLunchIndex() {
+                let eligibleIndices = lunchMenu
+                    .map((lunch, index) => ({ lunch, index }))
+                    .filter(({ lunch }) => (
+                        !blacklistedLunchNames.has(lunch.name) &&
+                        lunch.cluster !== previousLunchCluster &&
+                        !recentLunchNames.includes(lunch.name)
+                    ))
+                    .map(({ index }) => index);
+
+                // Preserve the dish cooldown if future menu changes leave no other cluster available.
+                if (eligibleIndices.length === 0) {
+                    eligibleIndices = lunchMenu
+                        .map((lunch, index) => ({ lunch, index }))
+                        .filter(({ lunch }) => (
+                            !blacklistedLunchNames.has(lunch.name) &&
+                            !recentLunchNames.includes(lunch.name)
+                        ))
+                        .map(({ index }) => index);
+                }
+
+                // If very few dishes remain, prefer honoring the blacklist over the cooldown.
+                if (eligibleIndices.length === 0) {
+                    eligibleIndices = lunchMenu
+                        .map((lunch, index) => ({ lunch, index }))
+                        .filter(({ lunch }) => !blacklistedLunchNames.has(lunch.name))
+                        .map(({ index }) => index);
+                }
+
+                if (eligibleIndices.length === 0) {
+                    return -1;
+                }
+
+                return eligibleIndices[Math.floor(Math.random() * eligibleIndices.length)];
+            }
             
             // Function to generate random lunch
             function generateRandomLunch() {
                 // Remove fade-in class if it exists
                 lunchDisplay.classList.remove('fade-in');
+                currentLunch = null;
+                generateBtn.disabled = true;
+                blacklistBtn.disabled = true;
                 
                 // Get a random lunch option
-                const randomIndex = Math.floor(Math.random() * lunchMenu.length);
+                const randomIndex = getNextLunchIndex();
+                if (randomIndex === -1) {
+                    foodIcon.innerHTML = '<i class="fas fa-ban"></i>';
+                    foodName.textContent = 'No dishes available';
+                    return;
+                }
+
                 const selectedLunch = lunchMenu[randomIndex];
+                previousLunchCluster = selectedLunch.cluster;
+                recentLunchNames.push(selectedLunch.name);
+                if (recentLunchNames.length > dishCooldownLength) {
+                    recentLunchNames.shift();
+                }
                 
                 // Briefly show loading state
                 foodIcon.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
@@ -185,6 +355,9 @@
                 setTimeout(() => {
                     foodIcon.innerHTML = `<i class="${selectedLunch.icon}"></i>`;
                     foodName.textContent = selectedLunch.name;
+                    currentLunch = selectedLunch;
+                    generateBtn.disabled = false;
+                    blacklistBtn.disabled = false;
                     
                     // Add animation class
                     lunchDisplay.classList.add('fade-in');
@@ -193,8 +366,26 @@
             
             // Add click event to button
             generateBtn.addEventListener('click', generateRandomLunch);
+
+            blacklistBtn.addEventListener('click', function() {
+                if (!currentLunch) {
+                    return;
+                }
+
+                blacklistedLunchNames.add(currentLunch.name);
+                updateBlacklistStatus();
+                generateRandomLunch();
+            });
+
+            clearBlacklistBtn.addEventListener('click', function() {
+                blacklistedLunchNames.clear();
+                updateBlacklistStatus();
+                generateBtn.disabled = false;
+                blacklistBtn.disabled = currentLunch === null;
+            });
             
             // Generate a random lunch on page load
+            updateBlacklistStatus();
             generateRandomLunch();
         });
     </script>

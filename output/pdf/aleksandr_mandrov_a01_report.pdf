@@ -1,0 +1,1540 @@
+%PDF-1.3
+%‚„œ”
+1 0 obj
+<<
+/Producer (ReportLab PDF Library \055 \050opensource\051)
+/Author (Aleksandr Mandrov)
+/CreationDate (D\07220260915172027\05303\04700\047)
+/Creator (\050unspecified\051)
+/Keywords ()
+/ModDate (D\07220260915172027\05303\04700\047)
+/Subject (LLM4Rec Assignment A01 report)
+/Title (Constraint\055Aware Random Lunch Recommendation in a Static Web Application)
+/Trapped (\057False)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 3
+/Kids [ 4 0 R 15 0 R 21 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+/F2-0 9 0 R
+/F3 10 0 R
+/F4 11 0 R
+/F5 12 0 R
+/F6 13 0 R
+/F7 14 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 13524
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+.835294 .882353 .909804 RG
+.5 w
+n 51.84 34.56 m 560.16 34.56 l S
+BT /F1 7.5 Tf 9 TL ET
+.376471 .447059 .490196 rg
+BT 1 0 0 1 536.3925 20.16 Tm (Page 1) Tj T* ET
+Q
+q
+1 0 0 1 57.84 706.4 cm
+q
+BT 1 0 0 1 0 23 Tm 39.417 0 Td 20 TL /F2 17 Tf .090196 .231373 .341176 rg (Constraint-Aware Random Lunch Recommendation) Tj  T* 99.637 0 Td (in a Static Web Application) Tj T* -139.054 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 688.4 cm
+q
+Q
+Q
+q
+1 0 0 1 57.84 676.4 cm
+q
+BT 1 0 0 1 0 2.5 Tm 104.0807 0 Td 11 TL /F2 8.5 Tf .133333 .192157 .227451 rg (Date:) Tj /F1 8.5 Tf ( 2026-09-15  ) Tj (  ) Tj /F2 8.5 Tf (Assignment:) Tj /F1 8.5 Tf ( A01 - Random Lunch Generator \(Week 1\)) Tj T* -104.0807 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 669.4 cm
+Q
+q
+1 0 0 1 51.84 598.4 cm
+q
+.960784 .972549 .980392 rg
+n 0 71 508.32 -71 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 9 7 cm
+q
+BT 1 0 0 1 0 48 Tm -0.036818 Tw 11.4 TL /F3 9 Tf .133333 .192157 .227451 rg (Abstract -) Tj /F4 9 Tf ( A naive random lunch generator can repeat the same dish, overuse a food family, or recommend an explicitly rejected item. I) Tj T* 0 Tw -0.085154 Tw (extended a no-build HTML/CSS/JavaScript baseline with cluster-aware filtering, a three-recommendation cooldown, a session blacklist,) Tj T* 0 Tw .636188 Tw (balanced catalog coverage, valid icons, and low-inventory feedback. The final deterministic regression suite passed ) Tj /F3 9 Tf (13/13 tests) Tj /F4 9 Tf (; three) Tj T* 0 Tw .7245 Tw (separate 100,000-selection checks reported zero identical-adjacent, same-cluster-adjacent, and cooldown violations while reaching all) Tj T* 0 Tw (42 dishes. The result shows that small, explicit candidate filters can substantially improve variety and user control without a backend.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.835294 .882353 .909804 RG
+.6 w
+n 0 71 m 508.32 71 l S
+n 0 0 m 508.32 0 l S
+n 0 0 m 0 71 l S
+n 508.32 0 m 508.32 71 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.84 587.4 cm
+q
+BT 1 0 0 1 0 2.5 Tm 85.6655 0 Td 11 TL /F2 8.5 Tf .133333 .192157 .227451 rg (Index Terms -) Tj /F1 8.5 Tf ( recommender systems, random sampling, diversity, constraints, testing) Tj T* -85.6655 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 568.4 cm
+q
+.086275 .458824 .721569 rg
+BT 1 0 0 1 0 1.5 Tm /F2 11.5 Tf 13 TL (1. Introduction) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 533 cm
+q
+BT 1 0 0 1 0 21.3 Tm .852071 Tw 9.8 TL /F4 8.1 Tf .133333 .192157 .227451 rg (The baseline selected one of 12 hard-coded dishes directly from ) Tj /F5 8.1 Tf (Math.random\(\)) Tj /F4 8.1 Tf (. It had no memory, no preference controls, and three icon class) Tj T* 0 Tw 1.4264 Tw (names that did not exist in the pinned Font Awesome stylesheet. This is a small recommender, but its failures are recognizable recommendation) Tj T* 0 Tw (problems: repetition, low catalog diversity, near-duplicate results, and inability to reject items.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 507.4 cm
+q
+BT 1 0 0 1 0 11.5 Tm .707716 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Concrete scenario.) Tj /F4 8.1 Tf ( With deterministic inputs 0.01 and 0.01, the baseline produced ) Tj /F5 8.1 Tf (Pizza -) Tj (> Pizza) Tj /F4 8.1 Tf (. A cluster-only revision could later produce) Tj T* 0 Tw /F5 8.1 Tf (Pizza -) Tj (> Sushi -) Tj (> Pizza) Tj /F4 8.1 Tf (, so preventing only immediate duplicates was insufficient.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 492 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+BT 1 0 0 1 12 1.5 Tm -0.67 0 Td 9.4 TL /F3 7.9 Tf .133333 .192157 .227451 rg (Contribution 1:) Tj /F4 7.9 Tf ( a transparent selection policy combining blacklist, cluster, and recency constraints.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 476.6 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+BT 1 0 0 1 12 1.5 Tm -0.67 0 Td 9.4 TL /F3 7.9 Tf .133333 .192157 .227451 rg (Contribution 2:) Tj /F4 7.9 Tf ( reproducible before/after evidence and a unified regression suite that executes the real inline application script.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 457.6 cm
+q
+.086275 .458824 .721569 rg
+BT 1 0 0 1 0 1.5 Tm /F2 11.5 Tf 13 TL (2. Related Work) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 412.4 cm
+q
+BT 1 0 0 1 0 31.1 Tm .017665 Tw 9.8 TL /F4 8.1 Tf .133333 .192157 .227451 rg (The implementation follows standard browser primitives rather than a learned model. MDN documents ) Tj /F5 8.1 Tf (Math.random\(\)) Tj /F4 8.1 Tf ( as approximately uniform on) Tj T* 0 Tw -0.09798 Tw ([0, 1\), supporting integer sampling with ) Tj /F5 8.1 Tf (Math.floor) Tj /F4 8.1 Tf ( [1]. A JavaScript ) Tj /F5 8.1 Tf (Set) Tj /F4 8.1 Tf ( stores unique blacklisted names and provides membership checks [2]. Font) Tj T* 0 Tw .372259 Tw (Awesome documents class-based icon insertion and the ) Tj /F5 8.1 Tf (fa-) Tj /F4 8.1 Tf ( naming convention used by the page [3]. GitHub Pages is a natural deployment target for) Tj T* 0 Tw (this static artifact, although publication was outside the implemented scope [4].) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 377 cm
+q
+BT 1 0 0 1 0 21.3 Tm .189671 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Alternatives considered.) Tj /F4 8.1 Tf ( A shuffle bag would give cycle-level coverage but complicate blacklist updates; weighted sampling could encode preferences) Tj T* 0 Tw .340595 Tw (but needs user signals; a backend profile could persist preferences but is unnecessary for a single-session Week 1 app. Explicit client-side filtering was) Tj T* 0 Tw (chosen for inspectability and compatibility with the existing no-build structure.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 358 cm
+q
+.086275 .458824 .721569 rg
+BT 1 0 0 1 0 1.5 Tm /F2 11.5 Tf 13 TL (3. Method) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 312.8 cm
+q
+BT 1 0 0 1 0 31.1 Tm .42414 Tw 9.8 TL /F4 8.1 Tf .133333 .192157 .227451 rg (Each dish has a name, Font Awesome icon class, and one of six semantic clusters. For recommendation ) Tj /F6 8.1 Tf (t) Tj /F4 8.1 Tf (, the primary eligible set is the catalog minus) Tj T* 0 Tw .269257 Tw (blacklisted names, the immediately previous cluster, and names in the latest three recommendations. One eligible index is sampled uniformly. If the set) Tj T* 0 Tw .035265 Tw (becomes empty, the existing fallback relaxes cluster and then cooldown restrictions while preserving the blacklist; this priority rule was intentionally left) Tj T* 0 Tw (unchanged.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 247.8 cm
+q
+1 0 0 1 0 0 cm
+0 0 0 RG
+1 w
+0 J
+0 j
+[] 0 d
+0 0 0 rg
+BT /F4 10 Tf 12 TL ET
+BT /F4 10 Tf 12 TL ET
+q
+1 0 0 1 0 0 cm
+q
+.917647 .956863 .984314 rg
+.086275 .458824 .721569 RG
+.8 w
+0 J
+0 j
+[] 0 d
+n
+5 11 m
+81 11 l
+83.764 11 86 13.236 86 16 c
+86 44 l
+86 46.764 83.764 49 81 49 c
+5 49 l
+2.236 49 0 46.764 0 44 c
+0 16 l
+0 13.236 2.236 11 5 11 c
+h
+B*
+Q
+q
+BT /F2 7.2 Tf 8.64 TL ET
+BT /F2 7.2 Tf 8.64 TL ET
+.090196 .231373 .341176 rg
+BT 1 0 0 1 16.792 34 Tm (42-dish catalog) Tj T* ET
+Q
+q
+BT /F1 6.4 Tf 7.68 TL ET
+BT /F1 6.4 Tf 7.68 TL ET
+.376471 .447059 .490196 rg
+BT 1 0 0 1 33.3968 20 Tm (source) Tj T* ET
+Q
+q
+.086275 .458824 .721569 RG
+1.1 w
+0 J
+0 j
+[] 0 d
+n 86 30 m 98 30 l S
+Q
+q
+.086275 .458824 .721569 rg
+.086275 .458824 .721569 RG
+1 w
+0 J
+0 j
+[] 0 d
+n 98 30 m 93 33 l 93 27 l h
+B*
+Q
+q
+.917647 .956863 .984314 rg
+.086275 .458824 .721569 RG
+.8 w
+0 J
+0 j
+[] 0 d
+n
+106 11 m
+182 11 l
+184.764 11 187 13.236 187 16 c
+187 44 l
+187 46.764 184.764 49 182 49 c
+106 49 l
+103.236 49 101 46.764 101 44 c
+101 16 l
+101 13.236 103.236 11 106 11 c
+h
+B*
+Q
+q
+BT /F2 7.2 Tf 8.64 TL ET
+BT /F2 7.2 Tf 8.64 TL ET
+.090196 .231373 .341176 rg
+BT 1 0 0 1 120.3912 34 Tm (Blacklist filter) Tj T* ET
+Q
+q
+BT /F1 6.4 Tf 7.68 TL ET
+BT /F1 6.4 Tf 7.68 TL ET
+.376471 .447059 .490196 rg
+BT 1 0 0 1 127.4592 20 Tm (constraint 1) Tj T* ET
+Q
+q
+.086275 .458824 .721569 RG
+1.1 w
+0 J
+0 j
+[] 0 d
+n 187 30 m 199 30 l S
+Q
+q
+.086275 .458824 .721569 rg
+.086275 .458824 .721569 RG
+1 w
+0 J
+0 j
+[] 0 d
+n 199 30 m 194 33 l 194 27 l h
+B*
+Q
+q
+.917647 .956863 .984314 rg
+.086275 .458824 .721569 RG
+.8 w
+0 J
+0 j
+[] 0 d
+n
+207 11 m
+283 11 l
+285.764 11 288 13.236 288 16 c
+288 44 l
+288 46.764 285.764 49 283 49 c
+207 49 l
+204.236 49 202 46.764 202 44 c
+202 16 l
+202 13.236 204.236 11 207 11 c
+h
+B*
+Q
+q
+BT /F2 7.2 Tf 8.64 TL ET
+BT /F2 7.2 Tf 8.64 TL ET
+.090196 .231373 .341176 rg
+BT 1 0 0 1 223.796 34 Tm (Cluster filter) Tj T* ET
+Q
+q
+BT /F1 6.4 Tf 7.68 TL ET
+BT /F1 6.4 Tf 7.68 TL ET
+.376471 .447059 .490196 rg
+BT 1 0 0 1 228.4592 20 Tm (constraint 2) Tj T* ET
+Q
+q
+.086275 .458824 .721569 RG
+1.1 w
+0 J
+0 j
+[] 0 d
+n 288 30 m 300 30 l S
+Q
+q
+.086275 .458824 .721569 rg
+.086275 .458824 .721569 RG
+1 w
+0 J
+0 j
+[] 0 d
+n 300 30 m 295 33 l 295 27 l h
+B*
+Q
+q
+.917647 .956863 .984314 rg
+.086275 .458824 .721569 RG
+.8 w
+0 J
+0 j
+[] 0 d
+n
+308 11 m
+384 11 l
+386.764 11 389 13.236 389 16 c
+389 44 l
+389 46.764 386.764 49 384 49 c
+308 49 l
+305.236 49 303 46.764 303 44 c
+303 16 l
+303 13.236 305.236 11 308 11 c
+h
+B*
+Q
+q
+BT /F2 7.2 Tf 8.64 TL ET
+BT /F2 7.2 Tf 8.64 TL ET
+.090196 .231373 .341176 rg
+BT 1 0 0 1 317.596 34 Tm (3-item cooldown) Tj T* ET
+Q
+q
+BT /F1 6.4 Tf 7.68 TL ET
+BT /F1 6.4 Tf 7.68 TL ET
+.376471 .447059 .490196 rg
+BT 1 0 0 1 329.4592 20 Tm (constraint 3) Tj T* ET
+Q
+q
+.086275 .458824 .721569 RG
+1.1 w
+0 J
+0 j
+[] 0 d
+n 389 30 m 401 30 l S
+Q
+q
+.086275 .458824 .721569 rg
+.086275 .458824 .721569 RG
+1 w
+0 J
+0 j
+[] 0 d
+n 401 30 m 396 33 l 396 27 l h
+B*
+Q
+q
+.909804 .960784 .937255 rg
+.180392 .490196 .356863 RG
+.8 w
+0 J
+0 j
+[] 0 d
+n
+409 11 m
+485 11 l
+487.764 11 490 13.236 490 16 c
+490 44 l
+490 46.764 487.764 49 485 49 c
+409 49 l
+406.236 49 404 46.764 404 44 c
+404 16 l
+404 13.236 406.236 11 409 11 c
+h
+B*
+Q
+q
+BT /F2 7.2 Tf 8.64 TL ET
+BT /F2 7.2 Tf 8.64 TL ET
+.090196 .231373 .341176 rg
+BT 1 0 0 1 419.7948 34 Tm (Uniform sample) Tj T* ET
+Q
+q
+BT /F1 6.4 Tf 7.68 TL ET
+BT /F1 6.4 Tf 7.68 TL ET
+.376471 .447059 .490196 rg
+BT 1 0 0 1 438.104 20 Tm (output) Tj T* ET
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.84 237.6 cm
+q
+.321569 .388235 .427451 rg
+BT 1 0 0 1 0 1 Tm /F7 7.2 Tf 8.2 TL 84.4896 0 Td (Figure 1. Candidate-generation pipeline. Each stage removes ineligible items before one uniform draw.) Tj T* -84.4896 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 202.2 cm
+q
+BT 1 0 0 1 0 21.3 Tm .496825 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Configuration.) Tj /F4 8.1 Tf ( The catalog contains 42 unique dishes: 6 clusters x 7 dishes. Cooldown length is 3. Blacklist state is stored in memory for the current) Tj T* 0 Tw 1.498535 Tw (page session. The remaining-item counter appears only below 10 items. Tests use seeded linear congruential generators \(123456789, 246813579,) Tj T* 0 Tw (987654321, and 135792468\) and immediate timer completion in a deterministic DOM harness.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 176.6 cm
+q
+BT 1 0 0 1 0 11.5 Tm .157575 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Tools.) Tj /F4 8.1 Tf ( Vanilla HTML5, CSS3, JavaScript; Font Awesome 6.4.0 via a pinned CDN stylesheet; Node.js v25.8.1 for syntax and regression checks; Python) Tj T* 0 Tw (3.12.13 local HTTP server for served-page verification.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 157.6 cm
+q
+.086275 .458824 .721569 rg
+BT 1 0 0 1 0 1.5 Tm /F2 11.5 Tf 13 TL (4. Experiments) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 122.2 cm
+q
+BT 1 0 0 1 0 21.3 Tm .950191 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Setup.) Tj /F4 8.1 Tf ( The evaluation used the static menu as the dataset on a local macOS workstation. Functional tests executed the actual inline JavaScript in a) Tj T* 0 Tw .74442 Tw (mocked DOM. Success required all deterministic boundaries to match, all dishes to remain reachable, no prohibited transitions in 100,000 draws per) Tj T* 0 Tw (behavioral stress test, and zero missing classes in the exact pinned icon stylesheet. Runtime performance was not evaluated.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 69.12 61.2 cm
+q
+.090196 .231373 .341176 rg
+n 0 58 473.76 -14.5 re f*
+.960784 .972549 .980392 rg
+n 0 29 473.76 -14.5 re f*
+1 1 1 rg
+BT /F1 10 Tf 8.5 TL ET
+q
+1 0 0 1 5 46.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 29.6691 0 Td (Measure) Tj T* -29.6691 0 Td ET
+Q
+Q
+q
+1 0 0 1 104.36 46.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 40.3173 0 Td (Baseline evidence) Tj T* -40.3173 0 Td ET
+Q
+Q
+q
+1 0 0 1 259.16 46.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 79.2996 0 Td (Final evidence) Tj T* -79.2996 0 Td ET
+Q
+Q
+0 0 0 rg
+BT /F1 7.2 Tf 8.5 TL ET
+BT 1 0 0 1 5 33.3 Tm (Unique dishes) Tj T* ET
+BT 1 0 0 1 104.36 33.3 Tm (12) Tj T* ET
+BT 1 0 0 1 259.16 33.3 Tm (42) Tj T* ET
+BT 1 0 0 1 5 18.8 Tm (Cluster sizes) Tj T* ET
+BT 1 0 0 1 259.16 18.8 Tm (7 in every cluster) Tj T* ET
+BT 1 0 0 1 5 4.3 Tm (Missing target icons) Tj T* ET
+BT 1 0 0 1 104.36 4.3 Tm (3) Tj T* ET
+BT 1 0 0 1 259.16 4.3 Tm (0) Tj T* ET
+q
+1 J
+1 j
+.835294 .882353 .909804 RG
+.45 w
+n 0 58 m 473.76 58 l S
+n 0 0 m 0 58 l S
+n 473.76 0 m 473.76 58 l S
+n 0 0 m 473.76 0 l S
+n 0 43.5 m 473.76 43.5 l S
+n 0 29 m 473.76 29 l S
+n 0 14.5 m 473.76 14.5 l S
+n 99.36 0 m 99.36 58 l S
+n 254.16 0 m 254.16 58 l S
+Q
+Q
+Q
+ 
+Q
+
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+1 1 1 rg
+n
+49 16 220 13 re
+f*
+0.376471 0.447059 0.490196 rg
+BT
+/F1-0 7.5 Tf
+9 TL
+ET
+BT
+1 0 0 1 51.84 20.16 Tm
+(LLM4Rec \055 Assignment A01 \055 Aleksandr Mandrov) Tj
+T*
+ET
+1 1 1 rg
+n
+145 685 325 17 re
+f*
+q
+1 0 0 1 91 688 cm
+q
+BT
+1 0 0 1 0 1.5 Tm
+59.28425 0 Td
+10 TL
+/F2-0 8.5 Tf
+0.133333 0.192157 0.227451 rg
+(Student\072) Tj
+/F1-0 8.5 Tf
+( Aleksandr Mandrov  ) Tj
+(  ) Tj
+/F2-0 8.5 Tf
+(Team\072) Tj
+/F1-0 8.5 Tf
+( Individual  ) Tj
+(  ) Tj
+/F2-0 8.5 Tf
+(Email\072) Tj
+/F1-0 8.5 Tf
+( apmandrov\100edu\056hse\056ru) Tj
+T*
+-59.28425 0 Td
+ET
+Q
+Q
+0.960784 0.972549 0.980392 rg
+n
+168.2 77.2 153.8 10.8 re
+f*
+0 0 0 rg
+BT
+/F1-0 7.2 Tf
+8.64 TL
+ET
+BT
+1 0 0 1 173.5 80.2 Tm
+(No clusters) Tj
+T*
+ET
+Q
+
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+9 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+10 0 obj
+<<
+/BaseFont /Times-Bold
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+11 0 obj
+<<
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+/Name /F4
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+12 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F5
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
+/BaseFont /Times-Italic
+/Encoding /WinAnsiEncoding
+/Name /F6
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+14 0 obj
+<<
+/BaseFont /Helvetica-Oblique
+/Encoding /WinAnsiEncoding
+/Name /F7
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+15 0 obj
+<<
+/Contents 16 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 17 0 R
+/F2 8 0 R
+/F2-0 18 0 R
+/F3 10 0 R
+/F3-0 19 0 R
+/F4 11 0 R
+/F4-0 20 0 R
+/F5 12 0 R
+/F6 13 0 R
+/F7 14 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+16 0 obj
+<<
+/Length 11258
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+.835294 .882353 .909804 RG
+.5 w
+n 51.84 34.56 m 560.16 34.56 l S
+BT /F1 7.5 Tf 9 TL ET
+.376471 .447059 .490196 rg
+BT 1 0 0 1 536.3925 20.16 Tm (Page 2) Tj T* ET
+Q
+q
+1 0 0 1 69.12 688.4 cm
+q
+.090196 .231373 .341176 rg
+n 0 58 473.76 -14.5 re f*
+.960784 .972549 .980392 rg
+n 0 43.5 473.76 -14.5 re f*
+1 1 1 rg
+BT /F1 10 Tf 8.5 TL ET
+q
+1 0 0 1 5 46.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 29.6691 0 Td (Measure) Tj T* -29.6691 0 Td ET
+Q
+Q
+q
+1 0 0 1 104.36 46.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 40.3173 0 Td (Baseline evidence) Tj T* -40.3173 0 Td ET
+Q
+Q
+q
+1 0 0 1 259.16 46.5 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 79.2996 0 Td (Final evidence) Tj T* -79.2996 0 Td ET
+Q
+Q
+0 0 0 rg
+BT /F1 7.2 Tf 8.5 TL ET
+BT 1 0 0 1 5 33.3 Tm (Repeat case) Tj T* ET
+BT 1 0 0 1 104.36 33.3 Tm (Pizza -> Pizza) Tj T* ET
+BT 1 0 0 1 259.16 33.3 Tm (Pizza -> Sushi) Tj T* ET
+BT 1 0 0 1 5 18.8 Tm (Cooldown boundary) Tj T* ET
+BT 1 0 0 1 104.36 18.8 Tm (Pizza -> Sushi -> Pizza) Tj T* ET
+BT 1 0 0 1 259.16 18.8 Tm (Pizza -> Sushi -> Burger -> Salad -> Pizza) Tj T* ET
+BT 1 0 0 1 5 4.3 Tm (Blacklist control) Tj T* ET
+BT 1 0 0 1 104.36 4.3 Tm (Absent) Tj T* ET
+BT 1 0 0 1 259.16 4.3 Tm (Present; 0/10,000 blocked-item appearances) Tj T* ET
+q
+1 J
+1 j
+.835294 .882353 .909804 RG
+.45 w
+n 0 58 m 473.76 58 l S
+n 0 43.5 m 0 58 l S
+n 0 0 m 0 43.5 l S
+n 473.76 43.5 m 473.76 58 l S
+n 473.76 0 m 473.76 43.5 l S
+n 0 0 m 473.76 0 l S
+n 0 43.5 m 473.76 43.5 l S
+n 99.36 43.5 m 99.36 58 l S
+n 254.16 43.5 m 254.16 58 l S
+n 0 29 m 473.76 29 l S
+n 0 14.5 m 473.76 14.5 l S
+n 99.36 0 m 99.36 43.5 l S
+n 254.16 0 m 254.16 43.5 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.84 678.2 cm
+q
+.321569 .388235 .427451 rg
+BT 1 0 0 1 0 1 Tm /F7 7.2 Tf 8.2 TL 140.1168 0 Td (Table 1. Baseline-to-final comparison from the saved evidence files.) Tj T* -140.1168 0 Td ET
+Q
+Q
+q
+1 0 0 1 69.12 588.7 cm
+q
+.086275 .458824 .721569 rg
+n 0 86.5 473.76 -14.5 re f*
+.960784 .972549 .980392 rg
+n 0 54 473.76 -18 re f*
+.960784 .972549 .980392 rg
+n 0 18 473.76 -18 re f*
+1 1 1 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 5 75 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 54.971 0 Td (Stress check) Tj T* -54.971 0 Td ET
+Q
+Q
+q
+1 0 0 1 170.6 75 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 21.4926 0 Td (Selections) Tj T* -21.4926 0 Td ET
+Q
+Q
+q
+1 0 0 1 260.6 75 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 25.9177 0 Td (Violations) Tj T* -25.9177 0 Td ET
+Q
+Q
+q
+1 0 0 1 357.8 75 cm
+q
+1 1 1 rg
+BT 1 0 0 1 0 1.1 Tm /F2 7.4 Tf 8.5 TL 38.6191 0 Td (Coverage) Tj T* -38.6191 0 Td ET
+Q
+Q
+0 0 0 rg
+BT /F1 7.2 Tf 12 TL ET
+BT 1 0 0 1 5 61.8 Tm (Adjacent identical dish) Tj T* ET
+BT 1 0 0 1 197.5896 61.8 Tm (100,000) Tj T* ET
+BT 1 0 0 1 302.1984 61.8 Tm (0) Tj T* ET
+BT 1 0 0 1 392.868 61.8 Tm (42/42 dishes) Tj T* ET
+BT 1 0 0 1 5 43.8 Tm (Adjacent same cluster) Tj T* ET
+BT 1 0 0 1 197.5896 43.8 Tm (100,000) Tj T* ET
+BT 1 0 0 1 302.1984 43.8 Tm (0) Tj T* ET
+BT 1 0 0 1 392.868 43.8 Tm (42/42 dishes) Tj T* ET
+BT 1 0 0 1 5 25.8 Tm (Three-item cooldown) Tj T* ET
+BT 1 0 0 1 197.5896 25.8 Tm (100,000) Tj T* ET
+BT 1 0 0 1 302.1984 25.8 Tm (0) Tj T* ET
+BT 1 0 0 1 392.868 25.8 Tm (42/42 dishes) Tj T* ET
+BT 1 0 0 1 5 7.8 Tm (One dish blacklisted) Tj T* ET
+BT 1 0 0 1 199.5912 7.8 Tm (10,000) Tj T* ET
+BT 1 0 0 1 280.386 7.8 Tm (0 appearances) Tj T* ET
+BT 1 0 0 1 384.8652 7.8 Tm (41/41 alternatives) Tj T* ET
+q
+1 J
+1 j
+.835294 .882353 .909804 RG
+.45 w
+n 0 86.5 m 473.76 86.5 l S
+n 0 0 m 473.76 0 l S
+n 0 0 m 0 86.5 l S
+n 473.76 0 m 473.76 86.5 l S
+n 0 72 m 473.76 72 l S
+n 0 54 m 473.76 54 l S
+n 0 36 m 473.76 36 l S
+n 0 18 m 473.76 18 l S
+n 165.6 0 m 165.6 86.5 l S
+n 255.6 0 m 255.6 86.5 l S
+n 352.8 0 m 352.8 86.5 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.84 578.5 cm
+q
+.321569 .388235 .427451 rg
+BT 1 0 0 1 0 1 Tm /F7 7.2 Tf 8.2 TL 117.9012 0 Td (Table 2. Reproducible final stress tests. The complete suite passed 13/13 checks.) Tj T* -117.9012 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 543.1 cm
+q
+BT 1 0 0 1 0 21.3 Tm .105329 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Independent boundary check.) Tj /F4 8.1 Tf ( In the final sequence ) Tj /F5 8.1 Tf (Pizza -) Tj (> Sushi -) Tj (> Burger -) Tj (> Salad -) Tj (> Pizza) Tj /F4 8.1 Tf (, the two Pizza results are separated) Tj T* 0 Tw .8188 Tw (by exactly three other recommendations. Thus Pizza is absent from each of the next three slots after its first appearance and becomes eligible at the) Tj T* 0 Tw (required boundary. The balance calculation also checks directly: 42 dishes / 6 clusters = 7 dishes per cluster, matching every parsed cluster count.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 524.1 cm
+q
+.086275 .458824 .721569 rg
+BT 1 0 0 1 0 1.5 Tm /F2 11.5 Tf 13 TL (5. Discussion) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 509.9 cm
+q
+.090196 .231373 .341176 rg
+BT 1 0 0 1 0 1.2 Tm /F2 9 Tf 10.2 TL (Failure, root cause, and fix) Tj T* ET
+Q
+Q
+q
+1 0 0 1 51.84 462.1 cm
+q
+1 .960784 .94902 rg
+n 0 46.8 508.32 -46.8 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 5 5 cm
+q
+BT 1 0 0 1 8 29.1 Tm 9.2 TL /F2 7.7 Tf .090196 .231373 .341176 rg (Observed failure:) Tj /F1 7.7 Tf ( ) Tj /F5 7.7 Tf (Ramen: fa-bowl-hot -) Tj (> MISSING; Pasta: fa-pasta -) Tj (> MISSING; Soup: fa-bowl -) Tj (> MISSING) Tj /F1 7.7 Tf (. ) Tj /F2 7.7 Tf (Root) Tj T* (cause:) Tj /F1 7.7 Tf ( the baseline referenced class names absent from Font Awesome 6.4.0. ) Tj /F2 7.7 Tf (Fix:) Tj /F1 7.7 Tf ( replace them with ) Tj /F5 7.7 Tf (fa-bowl-food) Tj /F1 7.7 Tf (, ) Tj /F5 7.7 Tf (fa-plate-wheat) Tj /F1 7.7 Tf (,) Tj T* (and ) Tj /F5 7.7 Tf (fa-mug-hot) Tj /F1 7.7 Tf (. ) Tj /F2 7.7 Tf (Confirmation:) Tj /F1 7.7 Tf ( the test fetched the exact pinned stylesheet and found all three classes; the rendered browser check) Tj T* (recorded non-empty 64 px glyphs and zero console errors.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.890196 .647059 .603922 RG
+.7 w
+n 0 46.8 m 508.32 46.8 l S
+n 0 0 m 508.32 0 l S
+n 0 0 m 0 46.8 l S
+n 508.32 0 m 508.32 46.8 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.84 447.9 cm
+q
+.090196 .231373 .341176 rg
+BT 1 0 0 1 0 1.2 Tm /F2 9 Tf 10.2 TL (What worked) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 432.5 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+.133333 .192157 .227451 rg
+BT 1 0 0 1 12 1.5 Tm /F4 7.9 Tf 9.4 TL -0.67 0 Td (Filtering an explicit candidate set made blacklist, cluster, and cooldown behavior easy to reason about and test.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 417.1 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+.133333 .192157 .227451 rg
+BT 1 0 0 1 12 1.5 Tm /F4 7.9 Tf 9.4 TL -0.67 0 Td (Seeded tests reproduced exact failures before each change and converted them into regression checks afterward.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 401.7 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+.133333 .192157 .227451 rg
+BT 1 0 0 1 12 1.5 Tm /F4 7.9 Tf 9.4 TL -0.67 0 Td (Balancing all six clusters removed the catalog-size asymmetry introduced by cluster exclusion.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 387.5 cm
+q
+.090196 .231373 .341176 rg
+BT 1 0 0 1 0 1.2 Tm /F2 9 Tf 10.2 TL (What failed or was surprising) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 372.1 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+.133333 .192157 .227451 rg
+BT 1 0 0 1 12 1.5 Tm /F4 7.9 Tf 9.4 TL -0.67 0 Td (Preventing only identical adjacent dishes still allowed near-duplicates such as Ramen -> Soup.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 356.7 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+.133333 .192157 .227451 rg
+BT 1 0 0 1 12 1.5 Tm /F4 7.9 Tf 9.4 TL -0.67 0 Td (A cluster-only rule still allowed Pizza to return after one intervening recommendation.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 341.3 cm
+q
+BT 1 0 0 1 2 1.5 Tm /F1 10 Tf 12 TL .133333 .192157 .227451 rg (-) Tj ET
+.133333 .192157 .227451 rg
+BT 1 0 0 1 12 1.5 Tm /F4 7.9 Tf 9.4 TL -0.67 0 Td (Disabled buttons still matched an unguarded CSS hover selector; functional state and visual feedback required separate checks.) Tj T* .67 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.84 305.9 cm
+q
+BT 1 0 0 1 0 21.3 Tm 1.738833 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Known limitation.) Tj /F4 8.1 Tf ( When the blacklist leaves too few choices, the existing fallback intentionally relaxes cluster and then cooldown constraints.) Tj T* 0 Tw .399243 Tw (Therefore blacklist safety is guaranteed, but diversity is not guaranteed in the nearly exhausted state. This behavior was reviewed and intentionally not) Tj T* 0 Tw (changed.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 280.3 cm
+q
+BT 1 0 0 1 0 11.5 Tm .337282 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Next improvement.) Tj /F4 8.1 Tf ( Make constraint relaxation visible in the UI \(for example, "Repeating a category because only two dishes remain"\) and add a user) Tj T* 0 Tw (setting that chooses between strict diversity and always returning a result.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 261.3 cm
+q
+.086275 .458824 .721569 rg
+BT 1 0 0 1 0 1.5 Tm /F2 11.5 Tf 13 TL (6. AI Usage Disclosure) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 235.7 cm
+q
+BT 1 0 0 1 0 11.5 Tm .032427 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Tool used.) Tj /F4 8.1 Tf ( OpenAI Codex desktop, GPT-5-based coding agent \(exact deployed model revision not exposed in the session UI\). It was used for repository) Tj T* 0 Tw (inspection, implementation, test generation, debugging, official-documentation lookup, evidence organization, and drafting this PDF.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 200.3 cm
+q
+BT 1 0 0 1 0 21.3 Tm 1.099613 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Personal verification.) Tj /F4 8.1 Tf ( I manually exercised the application during development and identified the visible repeat, same-family repeat, missing-icon,) Tj T* 0 Tw .877529 Tw (low-variety, and missing-blacklist problems. I checked the cooldown boundary sequence and the 42 / 6 = 7 cluster calculation shown above. Codex) Tj T* 0 Tw (executed the automated suite; the saved output reports 13/13 passing checks, and the served page returned HTTP 200.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 164.9 cm
+q
+BT 1 0 0 1 0 21.3 Tm 1.254019 Tw 9.8 TL /F3 8.1 Tf .133333 .192157 .227451 rg (Trusted without independent verification.) Tj /F4 8.1 Tf ( I did not audit the browser engine implementation of ) Tj /F5 8.1 Tf (Math.random\(\)) Tj /F4 8.1 Tf (, measure long-run statistical) Tj T* 0 Tw 1.580012 Tw (fairness beyond the seeded coverage checks, or benchmark runtime performance. No claim about cryptographic randomness, optimal ranking, or) Tj T* 0 Tw (production-scale behavior is made.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.84 139.3 cm
+q
+Q
+Q
+ 
+Q
+
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+1 1 1 rg
+n
+49 16 220 13 re
+f*
+0.376471 0.447059 0.490196 rg
+BT
+/F1-0 7.5 Tf
+9 TL
+ET
+BT
+1 0 0 1 51.84 20.16 Tm
+(LLM4Rec \055 Assignment A01 \055 Aleksandr Mandrov) Tj
+T*
+ET
+1 1 1 rg
+n
+54 135 504 28 re
+f*
+q
+1 0 0 1 57.84 139.4 cm
+q
+BT
+1 0 0 1 0 11.5 Tm
+0.972354 Tw
+9.8 TL
+/F2-0 8.1 Tf
+0.133333 0.192157 0.227451 rg
+(Audit trail\056) Tj
+/F3-0 8.1 Tf
+( The required unmodified\054 tool\055native session export must be submitted separately as ) Tj
+/F4-0 8.1 Tf
+(aleksandr\137mandrov\137a01\137session\056json) Tj
+/F3-0 8.1 Tf
+(\056) Tj
+T*
+0 Tw
+(This report does not create or modify that audit file\056) Tj
+T*
+ET
+Q
+Q
+Q
+
+
+endstream
+endobj
+17 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+18 0 obj
+<<
+/BaseFont /Times-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+19 0 obj
+<<
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+20 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F4
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+21 0 obj
+<<
+/Annots [ 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R ]
+/Contents 27 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 28 0 R
+/F1-1 29 0 R
+/F2 8 0 R
+/F2-0 30 0 R
+/F3 10 0 R
+/F4 11 0 R
+/F5 12 0 R
+/F6 13 0 R
+/F7 14 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+22 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057developer\056mozilla\056org\057en\055US\057docs\057Web\057JavaScript\057Reference\057Global\137Objects\057Math\057random)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 324.744 720.8 448.952 730.4 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+23 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057developer\056mozilla\056org\057en\055US\057docs\057Web\057JavaScript\057Reference\057Global\137Objects\057Set)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 286.312 705.8 377.192 715.4 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+24 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057docs\056fontawesome\056com\057web\057add\055icons\057how\055to)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 363.44 690.8 512.304 700.4 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+25 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057docs\056github\056com\057en\057pages\057getting\055started\055with\055github\055pages\057what\055is\055github\055pages)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 311.664 665.8 442.544 675.4 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+26 0 obj
+<<
+/Type /Annot
+/Subtype /Link
+/P 21 0 R
+/Rect [ 137.0024 595.5 359.9482 606.5 ]
+/H /I
+/Border [ 0 0 0 ]
+/A <<
+/S /URI
+/URI (https\072\057\057github\056com\057MilordEv\057RecSys\055LLMs\057tree\057main\057assignment1)
+>>
+>>
+endobj
+27 0 obj
+<<
+/Length 3515
+>>
+stream
+q
+q
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+0.835294 0.882353 0.909804 RG
+0.5 w
+n
+51.84 34.56 m
+560.16 34.56 l
+S
+BT
+/F1 7.5 Tf
+9 TL
+ET
+0.376471 0.447059 0.490196 rg
+BT
+1 0 0 1 536.3925 20.16 Tm
+(Page 3) Tj
+T*
+ET
+Q
+q
+1 0 0 1 57.84 733.4 cm
+q
+0.086275 0.458824 0.721569 rg
+BT
+1 0 0 1 0 1.5 Tm
+/F2 11.5 Tf
+13 TL
+(References) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 57.84 720.4 cm
+q
+BT
+1 0 0 1 14 2 Tm
+-14 0 Td
+10 TL
+/F4 8 Tf
+0 0 0 rg
+(\1331\135 MDN Web Docs\054 \042Math\056random\050\051\054\042 JavaScript Reference\056 \133Online\135\056 Available\072 ) Tj
+0.086275 0.458824 0.721569 rg
+(developer\056mozilla\056org\057\056\056\056\057Math\057random) Tj
+0 0 0 rg
+(\056 \133Accessed\072 2026\05509\05515\135\056) Tj
+T*
+14 0 Td
+ET
+Q
+Q
+q
+1 0 0 1 57.84 705.4 cm
+q
+BT
+1 0 0 1 14 2 Tm
+-14 0 Td
+10 TL
+/F4 8 Tf
+0 0 0 rg
+(\1332\135 MDN Web Docs\054 \042Set\054\042 JavaScript Reference\056 \133Online\135\056 Available\072 ) Tj
+0.086275 0.458824 0.721569 rg
+(developer\056mozilla\056org\057\056\056\056\057Set) Tj
+0 0 0 rg
+(\056 \133Accessed\072 2026\05509\05515\135\056) Tj
+T*
+14 0 Td
+ET
+Q
+Q
+q
+1 0 0 1 57.84 680.4 cm
+q
+BT
+1 0 0 1 14 12 Tm
+-14 0 Td
+10 TL
+/F4 8 Tf
+0 0 0 rg
+(\1333\135 Fonticons\054 Inc\056\054 \042How To Add Icons\054\042 Font Awesome Documentation\056 \133Online\135\056 Available\072 ) Tj
+0.086275 0.458824 0.721569 rg
+(docs\056fontawesome\056com\057web\057add\055icons\057how\055to) Tj
+0 0 0 rg
+(\056 \133Accessed\072) Tj
+T*
+14 0 Td
+(2026\05509\05515\135\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 57.84 665.4 cm
+q
+BT
+1 0 0 1 14 2 Tm
+-14 0 Td
+10 TL
+/F4 8 Tf
+0 0 0 rg
+(\1334\135 GitHub\054 Inc\056\054 \042What is GitHub Pages\077\054\042 GitHub Docs\056 \133Online\135\056 Available\072 ) Tj
+0.086275 0.458824 0.721569 rg
+(docs\056github\056com\057\056\056\056\057what\055is\055github\055pages) Tj
+0 0 0 rg
+(\056 \133Accessed\072 2026\05509\05515\135\056) Tj
+T*
+14 0 Td
+ET
+Q
+Q
+q
+1 0 0 1 57.84 652.4 cm
+Q
+q
+1 0 0 1 51.84 620 cm
+q
+0.917647 0.956863 0.984314 rg
+n
+0 32.4 508.32 -32.4 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 7 7 cm
+q
+BT
+1 0 0 1 8 10.7 Tm
+9.2 TL
+/F2 7.7 Tf
+0.090196 0.231373 0.341176 rg
+(Reproducibility note\056) Tj
+/F1 7.7 Tf
+( Test command\072 ) Tj
+/F5 7.7 Tf
+(node assignment1\057tests\057run\055all\055tests\056js) Tj
+/F1 7.7 Tf
+(\056 Canonical numeric output is stored in) Tj
+T*
+/F5 7.7 Tf
+(assignment1\057tests\057latest\055results\056txt) Tj
+/F1 7.7 Tf
+(\073 per\055change before\057after artifacts are under ) Tj
+/F5 7.7 Tf
+(assignment1\057evidence\057) Tj
+/F1 7.7 Tf
+(\056) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.086275 0.458824 0.721569 RG
+0.7 w
+n
+0 32.4 m
+508.32 32.4 l
+S
+n
+0 0 m
+508.32 0 l
+S
+n
+0 0 m
+0 32.4 l
+S
+n
+508.32 0 m
+508.32 32.4 l
+S
+Q
+Q
+Q
+Q
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+1 1 1 rg
+n
+49 16 220 13 re
+f*
+0.376471 0.447059 0.490196 rg
+BT
+/F1-0 7.5 Tf
+9 TL
+ET
+BT
+1 0 0 1 51.84 20.16 Tm
+(LLM4Rec \055 Assignment A01 \055 Aleksandr Mandrov) Tj
+T*
+ET
+Q
+Q
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-1 12 Tf
+14.4 TL
+ET
+0.933333 0.956863 1 rg
+n
+61.84 588 m
+550.16 588 l
+552.3712 588 554.16 589.7888 554.16 592 c
+554.16 611 l
+554.16 613.2112 552.3712 615 550.16 615 c
+61.84 615 l
+59.6288 615 57.84 613.2112 57.84 611 c
+57.84 592 l
+57.84 589.7888 59.6288 588 61.84 588 c
+h
+f*
+0.121569 0.160784 0.215686 rg
+BT
+/F2-0 7.7 Tf
+9.24 TL
+ET
+BT
+1 0 0 1 66.84 598.2 Tm
+(GitHub repository\072) Tj
+T*
+ET
+0.113725 0.305882 0.847059 rg
+BT
+/F1-1 7.7 Tf
+9.24 TL
+ET
+BT
+1 0 0 1 137.0024 598.2 Tm
+(https\072\057\057github\056com\057MilordEv\057RecSys\055LLMs\057tree\057main\057assignment1) Tj
+T*
+ET
+Q
+
+endstream
+endobj
+28 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+29 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+30 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+xref
+0 31
+0000000000 65535 f 
+0000000015 00000 n 
+0000000412 00000 n 
+0000000485 00000 n 
+0000000534 00000 n 
+0000000834 00000 n 
+0000014411 00000 n 
+0000014518 00000 n 
+0000014625 00000 n 
+0000014737 00000 n 
+0000014849 00000 n 
+0000014958 00000 n 
+0000015068 00000 n 
+0000015174 00000 n 
+0000015285 00000 n 
+0000015401 00000 n 
+0000015731 00000 n 
+0000027043 00000 n 
+0000027151 00000 n 
+0000027260 00000 n 
+0000027370 00000 n 
+0000027476 00000 n 
+0000027828 00000 n 
+0000028110 00000 n 
+0000028381 00000 n 
+0000028604 00000 n 
+0000028884 00000 n 
+0000029124 00000 n 
+0000032692 00000 n 
+0000032800 00000 n 
+0000032908 00000 n 
+trailer
+<<
+/Size 31
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+33021
+%%EOF

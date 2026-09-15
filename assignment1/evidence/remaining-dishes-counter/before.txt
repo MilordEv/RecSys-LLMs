@@ -1,0 +1,6 @@
+Menu size: 24
+Status with 10 dishes left: 14 dishes blacklisted this session.
+Status with 9 dishes left: 15 dishes blacklisted this session.
+Status with 8 dishes left: 16 dishes blacklisted this session.
+Status after clearing: No dishes blacklisted this session.
+PASS

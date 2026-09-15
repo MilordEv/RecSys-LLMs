@@ -1,0 +1,36 @@
+Command:
+node assignment1/tests/run-all-tests.js
+
+Result:
+13/13 tests passed
+
+Verified behavior:
+PASS - A dish cannot repeat within the next three recommendations.
+PASS - A dish becomes eligible after exactly three other recommendations.
+PASS - 100,000 selections produced zero cooldown violations and reached all 42 dishes.
+PASS - 100,000 selections produced zero same-cluster transitions and reached all 42 dishes.
+PASS - All six clusters contain exactly seven dishes.
+PASS - 100,000 selections produced zero consecutive identical dishes.
+PASS - The menu contains 42 unique dishes and zero missing icon classes.
+PASS - The corrected Ramen, Pasta, and Soup icons exist in Font Awesome 6.4.0.
+PASS - A blacklisted dish stayed absent across 10,000 selections while all 41 alternatives remained reachable.
+PASS - Excluding all 42 dishes produced a safe empty state; clearing restored recommendations.
+PASS - The remaining count is hidden at 10 and reports 9 and 8 dishes left below the boundary.
+PASS - Disabled Generate hover and active styles are suppressed.
+
+Key deterministic cooldown sequence:
+Pizza -> Sushi -> Burger -> Salad -> Pizza
+
+Stress-test counts:
+Selections per behavioral stress test: 100000
+Cooldown violations: 0
+Same-cluster transitions: 0
+Consecutive identical dishes: 0
+Unique dishes reached: 42
+
+Blacklist test counts:
+Selections while blacklisted: 10000
+Blacklisted-dish appearances: 0
+Alternative dishes reached: 41
+All-blacklisted state: No dishes available
+Generation disabled in all-blacklisted state: true
